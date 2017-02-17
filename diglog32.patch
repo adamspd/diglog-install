@@ -1,0 +1,36 @@
+diff -aur diglog32/log/src/ana/Makefile diglog32/log/src/ana/Makefile
+--- diglog32/log/src/ana/Makefile	2014-05-27 03:52:39.000000000 +0200
++++ diglog32/log/src/ana/Makefile	2017-02-05 16:30:31.058638000 +0100
+@@ -106,7 +106,7 @@
+ ##   -m68040              : for 68040 and 68060
+ ## 
+ 
+-CHIPMUNKFLAGS = 
++CHIPMUNKFLAGS = -DBSD -m32 -Dlinux -DF_OK=0 
+ 
+ CFLAGS =  $(CHIPMUNKFLAGS) -I$(LOCINC) -I$(XINCLUDEDIR)
+ 
+diff -aur diglog32/log/src/Makefile diglog32/log/src/Makefile
+--- diglog32/log/src/Makefile	2014-05-27 03:52:39.000000000 +0200
++++ diglog32/log/src/Makefile	2017-02-05 16:30:42.098590000 +0100
+@@ -181,7 +181,7 @@
+ ##   -m68040              : for 68040 and 68060
+ ## 
+ 
+-CHIPMUNKFLAGS = 
++CHIPMUNKFLAGS = -DBSD -m32 -Dlinux -DF_OK=0 
+ 
+ CFLAGS =  $(CHIPMUNKFLAGS) -I$(LOCINC) -I$(XINCLUDEDIR) -DLOGLIB=\"$(LOGLIBDIR)\" -DF_OK=0
+ 
+diff -aur diglog32/psys/src/Makefile diglog32/psys/src/Makefile
+--- diglog32/psys/src/Makefile	2014-05-27 03:52:39.000000000 +0200
++++ diglog32/psys/src/Makefile	2017-02-05 16:01:35.529907000 +0100
+@@ -192,7 +192,7 @@
+ ##   -m68040              : for 68040 and 68060
+ ##
+ 
+-CHIPMUNKFLAGS = 
++CHIPMUNKFLAGS = -DBSD -m32 -Dlinux -DF_OK=0 
+ 
+ CFLAGS = $(CHIPMUNKFLAGS) $(FONTS) -I$(LOCINC) -I$(XINCLUDEDIR) -DCHIPLIB=\"`$(CD) $(LIBDIR); pwd`\"
+ 
