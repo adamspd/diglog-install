@@ -13,7 +13,7 @@ wget http://john-lazzaro.github.io/chipmunk/pickup/sources/log-5.66.tar.gz
 
 tar xzf psys-1.61.tar.gz
 tar xzf log-5.66.tar.gz
-patch p1 < diglog32.patch
+patch -p1 < diglog32.patch
 
 mkdir $dighome/bin
 
