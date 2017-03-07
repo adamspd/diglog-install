@@ -1,15 +1,27 @@
 #!/bin/sh
 
+MACHINETYPE=$(uname -m)
+
 dighome=~/diglog
 
-sudo apt-get update && sudo apt-get install libx11-dev
-
 mkdir $dighome
+
+rm -f $dighome/*
+rm -rf $dighome/lib
+rm -rf $dighome/bin
+rm -rf $dighome/log
+rm -rf $dighome/psys
+
+if [ 'x86_64' = "$MACHINETYPE" ]; then
+    wget https://ar1.se/GuO0RElRWT -O $dighome/diglog.patch
+else
+    cp ./diglog32.patch $dighome/diglog.patch
+fi
+
 cd $dighome
 
 wget http://john-lazzaro.github.io/chipmunk/pickup/sources/psys-1.61.tar.gz
 wget http://john-lazzaro.github.io/chipmunk/pickup/sources/log-5.66.tar.gz
-wget https://ar1.se/GuO0RElRWT -O diglog.patch
 
 tar xzf psys-1.61.tar.gz
 tar xzf log-5.66.tar.gz
